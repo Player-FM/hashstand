@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    hashstand (0.0.1)
+      base62
+      hashie
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    base62 (1.0.0)
+    hashie (2.1.1)
+    minitest (4.7.5)
+    rake (10.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.6)
+  hashstand!
+  minitest (~> 4.7.3)
+  rake
