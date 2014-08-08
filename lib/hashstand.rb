@@ -7,9 +7,9 @@ require 'base62'
 
 module Hashstand
 
-  def self.hash(str, options={})
-    options = Hashie::Mash.new(salt: '', base: 64).merge(options)
-    digest = Digest::SHA256.digest(str+options.salt)
+  def self.hash(object, options={})
+    options = Hashie::Mash.new(salt: '', base: 62).merge(options)
+    digest = Digest::SHA256.digest(object.to_s+options.salt)
     raise 'I only know base62 right now' unless options.base==62
     Base62.encode(pack_int(digest))
   end

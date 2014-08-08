@@ -7,6 +7,10 @@ class BaseTest < MiniTest::Unit::TestCase
     assert_equal Hashstand.hash('abc', base: 62, salt: 'xyz'), Hashstand.hash('abc', base: 62, salt: 'xyz')
   end
 
+  def test_default_args
+    assert_equal Hashstand.hash('blah'), Hashstand.hash('blah', base: 62, salt: '')
+  end
+
   def test_base62_uniqueness
     refute_equal Hashstand.hash('abc', base: 62), Hashstand.hash('def', base: 62)
     refute_equal Hashstand.hash('abc', base: 62, salt: 'xyz'), Hashstand.hash('abc', base: 62, salt: 'def')
